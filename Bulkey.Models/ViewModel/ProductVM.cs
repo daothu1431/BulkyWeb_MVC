@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Bulkey.Models.ViewModel
@@ -10,6 +11,7 @@ namespace Bulkey.Models.ViewModel
     public class ProductVM
     {
         public Product Product { get; set; }
+        [ValidateNever]
         public IEnumerable<SelectListItem> CategorList { get; set; }
     }
 }

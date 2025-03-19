@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Bulkey.Models
 {
@@ -51,12 +52,14 @@ namespace Bulkey.Models
         public int CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         [DisplayName("Category")]
+        [ValidateNever]
         public Category Category { get; set; }
 
         // add-migration addForeignKeyForCategoryProductRelation
 
         [Required]
-        public string ImageUrl { get; set; }
+        [ValidateNever]
+        public string? ImageUrl { get; set; }
         // add-migration addImageUrlToProduct
 
     }
